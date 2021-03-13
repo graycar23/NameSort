@@ -45,13 +45,33 @@ namespace NameSortWindows
                     temp = "";
                 }
 
-                //Order the names list, first by length, then alphabetically
-                nameList = nameList.OrderBy(sortName => sortName.Length).ThenBy(sortName => sortName).ToList();
+                //Order the names list, first by length, then alphabetically, then store into new list
+                List<String> sortNameList = new List<string>();
+                sortNameList = nameList.OrderBy(sortName => sortName.Length).ThenBy(sortName => sortName).ToList();
 
                 //Print out each name in the list in their sorted order
-                foreach (string names in nameList)
+                foreach (string names in sortNameList)
                 {
                     Console.WriteLine(names);
+                }
+
+                //Allow user to reverse the sort if they so choose by typing "Reverse"
+                Console.WriteLine();
+                Console.WriteLine("To reverse sort, input \"Reverse\": ");
+
+                if (Console.ReadLine() == "Reverse")
+                {
+                    //Initialize new list for the reverse sort, then sort by length, then alphabetically, but descending
+                    List<String> reverseNameList = new List<string>();
+                    reverseNameList = nameList.OrderByDescending(sortName => sortName.Length).ThenByDescending(sortName => sortName).ToList();
+
+                    //Print out names in their reverse sorted order
+                    Console.WriteLine();
+
+                    foreach (string names in reverseNameList)
+                    {
+                        Console.WriteLine(names);
+                    }
                 }
 
                 //Close the file reader
