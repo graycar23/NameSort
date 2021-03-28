@@ -1,2 +1,4 @@
 language: csharp
-script: test.bat
+script: 
+  -cd tests
+  -test.bat
