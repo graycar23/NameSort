@@ -1,6 +1,6 @@
 #! /bin/bash
 
-chmod u+x program_name
+chmod u+x NameSort.exe
 
 ./NameSort.exe -s < "Sort Me.txt" > SortOutput.txt
 cmp Sorted.txt SortOutput.txt
