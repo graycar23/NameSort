@@ -1,4 +1,4 @@
 language: csharp
 script: 
-  -cd NameSortTest
-  -test.bat
+  - cd NameSortTest
+  - test.bat
