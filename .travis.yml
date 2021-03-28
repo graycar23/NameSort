@@ -1,4 +1,4 @@
 language: shell
 script: 
   - cd NameSortTest
-  - NameSort.sh
+  - bash NameSort.sh
