@@ -1,11 +1,11 @@
 #! /bin/bash
 
-chmod u+x NameSort.exe
+mcs -out:NameSort1.exe NameSort.cs
 
-./NameSort.exe -s < "Sort Me.txt" > SortOutput.txt
+chmod u+x NameSort1.exe
+
+mono NameSort1.exe -s < "Sort Me.txt" > SortOutput.txt
 cmp Sorted.txt SortOutput.txt
 
-./NameSort.exe -r < "Sort Me.txt" > ReverseOutput.txt
+mono NameSort1.exe -r < "Sort Me.txt" > ReverseOutput.txt
 cmp ReverseSorted.txt ReverseOutput.txt
-
-sleep 1
