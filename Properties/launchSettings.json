@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "NameSort": {
+      "commandName": "Project",
+      "commandLineArgs": "-s -r"
+    }
+  }
+}

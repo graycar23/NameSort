@@ -10,21 +10,22 @@ namespace NameSortWindows
         static void Main(string[] args)
         {
             //Make a List for the names to occupy
-            String nameListPath;
+            //String nameListPath;
             String name;
             List<string> nameList = new List<string>();
 
             try
             {
-                Console.WriteLine("Please input the path of the file: ");
+                //Commented Lines below allow for User Input
+                //Console.WriteLine("Please input the path of the file: ");
 
-                //Read the path of the file
-                nameListPath = Console.ReadLine();
+                ////Read the path of the file
+                //nameListPath = Console.ReadLine();
 
-                StreamReader readFile = new StreamReader(nameListPath);
+                //StreamReader readFile = new StreamReader(Console.OpenStandardInput());
 
                 //Read each line of the file
-                name = readFile.ReadLine();
+                name = Console.ReadLine();
 
                 //While the line is not null, add the name to the list and go to the next line
                 string temp = "";
@@ -41,32 +42,36 @@ namespace NameSortWindows
 
                     nameList.Add(temp);
 
-                    name = readFile.ReadLine();
+                    name = Console.ReadLine();
                     temp = "";
                 }
 
-                //Order the names list, first by length, then alphabetically, then store into new list
-                List<String> sortNameList = new List<string>();
-                sortNameList = nameList.OrderBy(sortName => sortName.Length).ThenBy(sortName => sortName).ToList();
+                if (args[0] == "-s") {
+                    //Order the names list, first by length, then alphabetically, then store into new list
+                    List<String> sortNameList = new List<string>();
+                    sortNameList = nameList.OrderBy(sortName => sortName.Length).ThenBy(sortName => sortName).ToList();
 
-                //Print out each name in the list in their sorted order
-                foreach (string names in sortNameList)
-                {
-                    Console.WriteLine(names);
+                    //Print out each name in the list in their sorted order
+                    foreach (string names in sortNameList)
+                    {
+                        Console.WriteLine(names);
+                    }
                 }
 
-                //Allow user to reverse the sort if they so choose by typing "Reverse"
-                Console.WriteLine();
-                Console.WriteLine("To reverse sort, input \"Reverse\": ");
-
-                if (Console.ReadLine() == "Reverse")
+                if (args[0] == "-r")
                 {
+                    //Allow user to reverse the sort if they so choose by typing "Reverse"
+                    //Console.WriteLine();
+                    //Console.WriteLine("To reverse sort, input \"Reverse\": ");
+
+                    //if (Console.ReadLine() == "Reverse")
+                    //{
                     //Initialize new list for the reverse sort, then sort by length, then alphabetically, but descending
                     List<String> reverseNameList = new List<string>();
                     reverseNameList = nameList.OrderByDescending(sortName => sortName.Length).ThenByDescending(sortName => sortName).ToList();
 
                     //Print out names in their reverse sorted order
-                    Console.WriteLine();
+                    //Console.WriteLine();
 
                     foreach (string names in reverseNameList)
                     {
@@ -75,8 +80,8 @@ namespace NameSortWindows
                 }
 
                 //Close the file reader
-                readFile.Close();
-                Console.ReadLine();
+                //readFile.Close();
+                //Console.ReadLine();
             }
             catch (Exception e)
             {
