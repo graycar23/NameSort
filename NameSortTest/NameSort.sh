@@ -1,5 +1,8 @@
 #! /bin/bash
 
+sudo apt update
+sudo apt install mono-complete
+
 mcs -out:NameSort1.exe Program.cs
 
 chmod u+x NameSort1.exe
