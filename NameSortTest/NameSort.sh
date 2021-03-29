@@ -1,6 +1,6 @@
 #! /bin/bash
 
-mcs -out:NameSort1.exe NameSort.cs
+mcs -out:NameSort1.exe Program.cs
 
 chmod u+x NameSort1.exe
 
